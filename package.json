@@ -8,7 +8,7 @@
     "auth",
     "login",
     "management",
-    "API"
+    "api"
   ],
   "author": {
     "name": "Ross Khanas",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rtkhanas/pure-validation.git"
+    "url": "git@github.com:rtkhanas/icloud-session.git"
   },
   "files": [
     "lib"
