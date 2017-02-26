@@ -15,6 +15,9 @@
     "email": "rtkhanas@gmail.com"
   },
   "scripts": {
+    "demo": "cd demo && yarn start",
+    "demo:build": "cd demo && yarn run build",
+    "demo:deploy": "gh-pages -d demo/build",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
@@ -42,6 +45,7 @@
     "eslint": "^3.1.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "gh-pages": "^0.12.0",
     "mocha": "^3.1.0",
     "rimraf": "^2.5.3"
   }
