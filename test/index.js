@@ -14,6 +14,9 @@ describe('typeof', () => {
   it('iCloudSession.saveSession is a function', () => {
     assert.equal(typeof iCloudSession.saveSession === 'function', true);
   });
+  it('iCloudSession.validateSession is a function', () => {
+    assert.equal(typeof iCloudSession.validateSession === 'function', true);
+  });
   it('requestICloudData is a function', () => {
     assert.equal(typeof requestICloudData === 'function', true);
   });
