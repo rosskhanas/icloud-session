@@ -54,4 +54,5 @@ export default {
   login,
   loadSessionFile,
   saveSession,
+  validateSession,
 };

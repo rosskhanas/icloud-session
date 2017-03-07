@@ -1,6 +1,6 @@
 {
   "name": "icloud-session",
-  "version": "0.0.1-rc.0",
+  "version": "0.0.1-rc.1",
   "description": "An iCloud session management API.",
   "keywords": [
     "icould",
