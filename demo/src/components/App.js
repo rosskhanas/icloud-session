@@ -43,7 +43,24 @@ export default class App extends Component {
   render() {
     const repositoryLink = 'https://github.com/rtkhanas/icloud-session';
     const codeString = `
+import fs from 'fs';
 import iCloud from 'icloud-session';
+
+function saveSession(sessionPath, session) {
+  fs.writeFileSync(sessionPath, JSON.stringify(session, null, 2));
+}
+
+function loadSessionFile(sessionPath, callback) {
+  let session;
+  try {
+    session = fs.readFileSync(sessionPath);
+    session = JSON.parse(session);
+  } catch (e) {
+    callback(e);
+    return;
+  }
+  iCloud.validateSession(session, callback);
+}
 
 iCloud.login({
   apple_id: '${this.state.email}',
@@ -53,11 +70,11 @@ iCloud.login({
     throw new Error('nope');
   }
   console.log(session);
-  iCloud.saveSession('session.json', session);
+  saveSession('session.json', session);
 });
 
 // or, if you have stored session:
-iCloud.loadSessionFile('session.json', (err, session) => {
+loadSessionFile('session.json', (err, session) => {
   if (err) {
     throw new Error('Try refreshing your credentials (session has expired)');
   }

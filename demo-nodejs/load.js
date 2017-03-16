@@ -1,7 +1,20 @@
-const iCloud = require('../lib').default;
+const fs = require('fs');
 const fetchAllContacts = require('./contact');
+const iCloud = require('../lib').default;
 
-iCloud.loadSessionFile('session.json', (err, session) => {
+function loadSessionFile(sessionPath, callback) {
+  let session;
+  try {
+    session = fs.readFileSync(sessionPath);
+    session = JSON.parse(session);
+  } catch (e) {
+    callback(e);
+    return;
+  }
+  iCloud.validateSession(session, callback);
+}
+
+loadSessionFile('session.json', (err, session) => {
   if (err) {
     throw new Error('Try refreshing your credentials (session has expired)');
   }

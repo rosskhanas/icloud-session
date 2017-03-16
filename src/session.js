@@ -1,4 +1,3 @@
-import fs from 'fs';
 import url from 'url';
 import merge from 'mout/object/merge';
 import request from 'nyks/http/request';
@@ -8,10 +7,12 @@ import HEADERS from './headers';
 
 function login(credentials, callback) {
   const remote = 'https://setup.icloud.com/setup/ws/1/login';
-  const data = merge({
-    extended_login: true,
-  }, credentials);
+  const data = merge({ extended_login: true }, credentials);
   request(merge(url.parse(remote), { headers: HEADERS, json: true }), data, (err, body, res) => {
+    if (body.error) {
+      callback('Probably credentials are not correct.');
+      return;
+    }
     const cookies = res.headers['set-cookie'];
     const jar = {};
     cookies.forEach((cookie) => {
@@ -34,25 +35,7 @@ function validateSession(session, callback) {
   callback(null, session);
 }
 
-function loadSessionFile(sessionPath, callback) {
-  let session;
-  try {
-    session = fs.readFileSync(sessionPath);
-    session = JSON.parse(session);
-  } catch (e) {
-    callback(e);
-    return;
-  }
-  validateSession(session, callback);
-}
-
-function saveSession(sessionPath, session) {
-  fs.writeFileSync(sessionPath, JSON.stringify(session, null, 2));
-}
-
 export default {
   login,
-  loadSessionFile,
-  saveSession,
   validateSession,
 };
