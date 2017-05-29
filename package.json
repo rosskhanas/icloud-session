@@ -18,6 +18,7 @@
     "demo": "cd demo && yarn start",
     "demo:build": "cd demo && yarn run build",
     "demo:deploy": "gh-pages -d demo/build",
+    "demo-nodejs-login": "npm run build && cd demo-nodejs && node login.js",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
