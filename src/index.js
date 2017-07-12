@@ -1,7 +1,3 @@
-import requestICloudData from './request';
 
 export { default } from './session';
-
-export {
-  requestICloudData,
-};
+export { default as requestICloudData } from './request';

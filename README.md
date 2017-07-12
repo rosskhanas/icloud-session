@@ -14,6 +14,31 @@ An iCloud session management API.
 yarn add icloud-session
 ```
 
+### API
+
+#### default.login
+
+prop          | type        | required | description
+--------------|-------------|----------|-------------
+`credentials` | `object`    | true     | An object with an 'apple_id' and a 'password' keys (an email and a password)
+`callback`    | `func`      | false    | 
+
+#### default.validateSession
+
+prop       | type        | required | description
+-----------|-------------|----------|-------------
+`session`  | `object`    | true     | An object received from this library
+`callback` | `func`      | false    | 
+
+#### requestICloudData
+
+prop       | type        | required | description
+-----------|-------------|----------|-------------
+`session`  | `object`    | true     | An object received from a `icloud-session` library
+`query`    | `object`    | true     | 
+`data`     | `object`    | true     | 
+`callback` | `func`      | false    | 
+
 ### License
 
 MIT
