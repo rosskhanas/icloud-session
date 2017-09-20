@@ -209,7 +209,7 @@ babel-core@^6.10.4, babel-core@^6.24.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@8.0.0:
+babel-eslint@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.0.0.tgz#ce06f385bdfb5b6d7e603f06222f891abd14c240"
   dependencies:
@@ -1856,9 +1856,9 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nyks@^3.16.1:
-  version "3.19.1"
-  resolved "https://registry.yarnpkg.com/nyks/-/nyks-3.19.1.tgz#ebcc49bcff32f7a1eff1018a2342d8f7b63fb15c"
+nyks@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/nyks/-/nyks-4.0.1.tgz#b1a90affdb57d71d7488bcdeea2e0b924d0e2c40"
   dependencies:
     mout "^1.0.0"
 
