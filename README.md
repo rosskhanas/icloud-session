@@ -35,8 +35,8 @@ prop       | type        | required | description
 prop       | type        | required | description
 -----------|-------------|----------|-------------
 `session`  | `object`    | true     | An object received from a `icloud-session` library
-`query`    | `object`    | true     | 
-`data`     | `object`    | true     | 
+`url`      | `string`    | true     | 
+`data`     | `string`    | false    | Request body. (Use `JSON.stringify` for json objects)
 `callback` | `func`      | false    | 
 
 ### License

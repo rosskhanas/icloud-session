@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import HEADERS from './headers';
 
-export default (session, url, data, callback) => {
+export default (session, url, data, callback = () => {}) => {
   const method = data ? 'POST' : 'GET';
   const cookies = session.cookies.map((cookie) => {
     const cookieKey = Object.keys(cookie).find(key => key.match(/X-APPLE.*/));

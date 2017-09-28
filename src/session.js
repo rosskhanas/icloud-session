@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { parse as parseCookie } from 'cookie';
 import HEADERS from './headers';
 
-function login(credentials, callback) {
+function login(credentials, callback = () => {}) {
   const remote = 'https://setup.icloud.com/setup/ws/1/login';
   const data = JSON.stringify(Object.assign({}, {
     extended_login: true,
@@ -35,7 +35,7 @@ function login(credentials, callback) {
     }).catch(error => callback(error));
 }
 
-function validateSession(session, callback) {
+function validateSession(session, callback = () => {}) {
   const age = (Date.now() - Number(session.session_creation || 0)) / 1000;
   if (age > 86400 * 5) {
     callback('Session too old');
