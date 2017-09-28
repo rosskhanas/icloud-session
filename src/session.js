@@ -1,5 +1,5 @@
-import fetch from 'node-fetch';
 import { parse as parseCookie } from 'cookie';
+import fetch from 'node-fetch';
 import HEADERS from './headers';
 
 function login(credentials, callback = () => {}) {
