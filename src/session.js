@@ -22,28 +22,13 @@ function login(credentials, callback) {
         if (json.error) {
           callback(new Error(json.error));
         }
-        const jar = {};
         const cookiesHeader = res.headers.raw()['set-cookie'];
-        cookiesHeader.forEach((cookie) => {
-          const parsedCookie = parseCookie(cookie);
-          const name = Object.keys(parsedCookie)[0];
-          jar[name] = {
-            name,
-            value: parsedCookie[name],
-            extras: {
-              expires: parsedCookie.Expires,
-              domain: parsedCookie.Domain,
-              path: parsedCookie.Path,
-              secure: parsedCookie.Secure || null,
-              httponly: parsedCookie.HttpOnly || null,
-            },
-          };
-        });
+        const cookies = cookiesHeader.map(cookie => parseCookie(cookie));
         const session = {
           dsInfo: json.dsInfo,
           webservices: json.webservices,
+          cookies,
         };
-        session.jar = jar;
         session.session_creation = Date.now();
         callback(null, session);
       }).catch(error => callback(error));

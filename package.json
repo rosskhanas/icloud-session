@@ -19,6 +19,7 @@
     "demo:build": "cd demo && yarn run build",
     "demo:deploy": "gh-pages -d demo/build",
     "demo-nodejs-login": "npm run build && cd demo-nodejs && node login.js",
+    "demo-nodejs-load": "npm run build && cd demo-nodejs && node load.js",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "test": "mocha --recursive --compilers js:babel-core/register",
@@ -35,9 +36,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "cookie": "^0.3.1",
-    "mout": "^1.0.0",
-    "node-fetch": "^1.7.3",
-    "nyks": "^3.16.1"
+    "node-fetch": "^1.7.3"
   },
   "devDependencies": {
     "babel": "^6.3.26",
