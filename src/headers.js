@@ -1,5 +1,5 @@
 
 export default {
   origin: 'https://www.icloud.com',
-  'content-type': 'text/plain',
+  'Content-Type': 'application/json',
 };
