@@ -4,14 +4,16 @@ import HEADERS from './headers';
 
 function login(credentials, callback = () => {}) {
   const remote = 'https://setup.icloud.com/setup/ws/1/login';
-  const data = JSON.stringify(Object.assign({}, {
+  const data = JSON.stringify({
     extended_login: true,
-  }, credentials));
+    ...credentials,
+  });
   fetch(remote, {
     method: 'POST',
-    headers: Object.assign({}, HEADERS, {
+    headers: {
+      ...HEADERS,
       'content-length': Buffer.byteLength(data),
-    }),
+    },
     body: data,
   }).catch(error => callback(error))
     .then((res) => {
