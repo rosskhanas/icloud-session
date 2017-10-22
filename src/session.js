@@ -21,6 +21,7 @@ function login(credentials, callback = () => {}) {
       return res.json().then((json) => {
         if (json.error) {
           callback(new Error(json.error));
+          return;
         }
         const cookiesHeader = res.headers.raw()['set-cookie'];
         const cookies = cookiesHeader.map(cookie => parseCookie(cookie));
