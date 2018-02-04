@@ -36,7 +36,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "cookie": "^0.3.1",
-    "node-fetch": "^1.7.3"
+    "node-fetch": "^2.0.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
